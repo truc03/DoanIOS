@@ -9,6 +9,11 @@ import UIKit
 
 class ForgetUsernameViewController: UIViewController {
 
+    @IBAction func tapToProblemAccount(_ sender: Any) {
+        dismiss(animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProblemAccountViewController")
+        present(vc!, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

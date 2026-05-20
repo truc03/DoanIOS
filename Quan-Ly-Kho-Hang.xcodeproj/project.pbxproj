@@ -88,12 +88,7 @@
 		13BA08682FBAD61300396534 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13BA08572FBAD5BC00396534 /* MainViewController.swift */,
-				13BA086A2FBAFA9C00396534 /* LoginViewController.swift */,
-				13BA086C2FBAFB9C00396534 /* RegisterViewController.swift */,
-				13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */,
-				13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */,
-				13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */,
+				13CD57662FBE774E00F33285 /* Auth */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -104,6 +99,19 @@
 				13BA08592FBAD5BC00396534 /* Main.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		13CD57662FBE774E00F33285 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				13BA08572FBAD5BC00396534 /* MainViewController.swift */,
+				13BA086A2FBAFA9C00396534 /* LoginViewController.swift */,
+				13BA086C2FBAFB9C00396534 /* RegisterViewController.swift */,
+				13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */,
+				13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */,
+				13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
