@@ -9,6 +9,9 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBAction func tapToLogin(_ sender: Any) {
+        dismiss(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

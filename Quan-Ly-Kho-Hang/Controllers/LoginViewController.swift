@@ -8,7 +8,17 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    @IBAction func tapToRegister(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController")
+        present(vc!, animated: true)
+    }
+    
+    @IBAction func tapToProblemAccount(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProblemAccountViewController")
+        present(vc!, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
