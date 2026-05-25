@@ -9,6 +9,9 @@ import UIKit
 
 class ProblemAccountViewController: UIViewController {
 
+    @IBAction func tapToLogin(_ sender: Any) {
+        dismiss(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

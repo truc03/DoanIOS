@@ -18,13 +18,6 @@
 		13BA086F2FBAFC7D00396534 /* ProblemAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */; };
 		13BA08712FBAFD8D00396534 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */; };
 		13BA08732FBAFFBD00396534 /* ForgetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */; };
-		CE3460EF2FC19DB10063A7C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3460EE2FC19DB10063A7C7 /* HomeViewController.swift */; };
-		CE3460F32FC1A2990063A7C7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3460F22FC1A2990063A7C7 /* CardView.swift */; };
-		CE95D80A2FC1CBF4005F6538 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95D8092FC1CBF4005F6538 /* Product.swift */; };
-		CE95D80C2FC1CCA1005F6538 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95D80B2FC1CCA1005F6538 /* FirebaseService.swift */; };
-		CE95D80F2FC1CF12005F6538 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE95D80E2FC1CF12005F6538 /* FirebaseAnalytics */; };
-		CE95D8112FC1CF12005F6538 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE95D8102FC1CF12005F6538 /* FirebaseFirestore */; };
-		CE95D8132FC1CF12005F6538 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE95D8122FC1CF12005F6538 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +34,6 @@
 		13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemAccountViewController.swift; sourceTree = "<group>"; };
 		13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetUsernameViewController.swift; sourceTree = "<group>"; };
-		CE3460EE2FC19DB10063A7C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		CE3460F22FC1A2990063A7C7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		CE95D8092FC1CBF4005F6538 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		CE95D80B2FC1CCA1005F6538 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE95D80F2FC1CF12005F6538 /* FirebaseAnalytics in Frameworks */,
-				CE95D8112FC1CF12005F6538 /* FirebaseFirestore in Frameworks */,
-				CE95D8132FC1CF12005F6538 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +52,6 @@
 			children = (
 				13BA08522FBAD5BC00396534 /* Quan-Ly-Kho-Hang */,
 				13BA08512FBAD5BC00396534 /* Products */,
-				CE95D8142FC1D0B4005F6538 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,8 +69,6 @@
 				13BA08692FBAD62100396534 /* Views */,
 				13BA08682FBAD61300396534 /* Controllers */,
 				13BA08672FBAD5E800396534 /* System Files */,
-				CE95D8092FC1CBF4005F6538 /* Product.swift */,
-				CE95D80B2FC1CCA1005F6538 /* FirebaseService.swift */,
 			);
 			path = "Quan-Ly-Kho-Hang";
 			sourceTree = "<group>";
@@ -105,13 +88,7 @@
 		13BA08682FBAD61300396534 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13BA08572FBAD5BC00396534 /* MainViewController.swift */,
-				13BA086A2FBAFA9C00396534 /* LoginViewController.swift */,
-				13BA086C2FBAFB9C00396534 /* RegisterViewController.swift */,
-				13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */,
-				13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */,
-				13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */,
-				CE3460EE2FC19DB10063A7C7 /* HomeViewController.swift */,
+				13CD57662FBE774E00F33285 /* Auth */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,16 +97,21 @@
 			isa = PBXGroup;
 			children = (
 				13BA08592FBAD5BC00396534 /* Main.storyboard */,
-				CE3460F22FC1A2990063A7C7 /* CardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		CE95D8142FC1D0B4005F6538 /* Frameworks */ = {
+		13CD57662FBE774E00F33285 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				13BA08572FBAD5BC00396534 /* MainViewController.swift */,
+				13BA086A2FBAFA9C00396534 /* LoginViewController.swift */,
+				13BA086C2FBAFB9C00396534 /* RegisterViewController.swift */,
+				13BA086E2FBAFC7D00396534 /* ProblemAccountViewController.swift */,
+				13BA08722FBAFFBD00396534 /* ForgetUsernameViewController.swift */,
+				13BA08702FBAFD8D00396534 /* ForgetPasswordViewController.swift */,
 			);
-			name = Frameworks;
+			name = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,11 +130,6 @@
 			dependencies = (
 			);
 			name = "Quan-Ly-Kho-Hang";
-			packageProductDependencies = (
-				CE95D80E2FC1CF12005F6538 /* FirebaseAnalytics */,
-				CE95D8102FC1CF12005F6538 /* FirebaseFirestore */,
-				CE95D8122FC1CF12005F6538 /* FirebaseFirestoreSwift */,
-			);
 			productName = "Quan-Ly-Kho-Hang";
 			productReference = 13BA08502FBAD5BC00396534 /* Quan-Ly-Kho-Hang.app */;
 			productType = "com.apple.product-type.application";
@@ -181,9 +158,6 @@
 				Base,
 			);
 			mainGroup = 13BA08472FBAD5BC00396534;
-			packageReferences = (
-				CE95D80D2FC1CF12005F6538 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = 13BA08512FBAD5BC00396534 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,13 +189,9 @@
 				13BA086B2FBAFA9C00396534 /* LoginViewController.swift in Sources */,
 				13BA086D2FBAFB9C00396534 /* RegisterViewController.swift in Sources */,
 				13BA08582FBAD5BC00396534 /* MainViewController.swift in Sources */,
-				CE3460F32FC1A2990063A7C7 /* CardView.swift in Sources */,
-				CE95D80A2FC1CBF4005F6538 /* Product.swift in Sources */,
 				13BA08712FBAFD8D00396534 /* ForgetPasswordViewController.swift in Sources */,
-				CE3460EF2FC19DB10063A7C7 /* HomeViewController.swift in Sources */,
 				13BA08542FBAD5BC00396534 /* AppDelegate.swift in Sources */,
 				13BA08562FBAD5BC00396534 /* SceneDelegate.swift in Sources */,
-				CE95D80C2FC1CCA1005F6538 /* FirebaseService.swift in Sources */,
 				13BA08732FBAFFBD00396534 /* ForgetUsernameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,35 +410,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CE95D80D2FC1CF12005F6538 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CE95D80E2FC1CF12005F6538 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE95D80D2FC1CF12005F6538 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		CE95D8102FC1CF12005F6538 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE95D80D2FC1CF12005F6538 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		CE95D8122FC1CF12005F6538 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE95D80D2FC1CF12005F6538 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13BA08482FBAD5BC00396534 /* Project object */;
 }
