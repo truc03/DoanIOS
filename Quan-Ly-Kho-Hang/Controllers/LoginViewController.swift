@@ -6,34 +6,75 @@
 //
 
 import UIKit
+import OSLog
 
 class LoginViewController: UIViewController {
+    // Anh xa UI trong Main
+    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Che do an mat khau
+        txtPassword.isSecureTextEntry = true
+        
+        // Tat tinh nang goi y do manh password
+        txtPassword.passwordRules = nil
+        txtPassword.textContentType = .none
+        
+        // Tat ban phim
+        view.endEditing(true)
+    }
+    
+    // Xu ly su kien khi an vao Register
     @IBAction func tapToRegister(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController")
         present(vc!, animated: true)
     }
     
+    // Xu ly su kien khi an vao ProblemAccount
     @IBAction func tapToProblemAccount(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ProblemAccountViewController")
         present(vc!, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // Xu ly su kien khi an vao nut dang nhap
+    @IBAction func tapToLogin(_ sender: Any) {
+        login()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Ham xu ly login
+    private func login() {
+        // Kiem tra nil hoac whitespace cho username va password
+        guard let username = txtUsername.text,
+              !username.isEmpty,
+              
+              let password = txtPassword.text,
+              !password.isEmpty else {
+            self.view.makeToast("Không được phép để trống các ô nhập!", duration: 2.0, position: .top)
+            return
+        }
+        
+        // Goi loginAccount va checkRoleAccount trong AuthService, kiem tra username, password va quyen truy cap
+        let db = AuthService()
+        db.loginAccount(username: username, password: password, completion: { checkAuth in
+            if checkAuth {
+                db.checkRoleAccount(username: username, completion: { checkRole in
+                    // Chuyen man hinh Admin khi checkRole = true, man hinh User khi checkRole = false
+                    if checkRole {
+                        // Viet chuyen man hinh Admin tai day!
+                        
+                    }
+                    else {
+                        // Viet chuyen man hinh User tai day!
+                        
+                    }
+                })
+            }
+            else {
+                self.view.makeToast("Sai Tài khoản hoặc Mật khẩu!", duration: 2.0, position: .top)
+            }
+        })
     }
-    */
-
 }
