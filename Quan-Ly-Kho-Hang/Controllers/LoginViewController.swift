@@ -62,19 +62,28 @@ class LoginViewController: UIViewController {
             if checkAuth {
                 db.checkRoleAccount(username: username, completion: { checkRole in
                     // Chuyen man hinh Admin khi checkRole = true, man hinh User khi checkRole = false
-                    if checkRole {
-                        // Viet chuyen man hinh Admin tai day!
-                        
-                    }
-                    else {
-                        // Viet chuyen man hinh User tai day!
-                        
-                    }
+                    self.goInside(check: checkRole)
                 })
             }
             else {
                 self.view.makeToast("Sai Tài khoản hoặc Mật khẩu!", duration: 2.0, position: .top)
             }
         })
+    }
+    
+    // Sau khi xac thuc thanh cong, chuyen qua man hinh tuy vao phan quyen nguoi dung
+    private func goInside(check: Bool) {
+        if check {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle = .crossDissolve
+            present(vc!, animated: true)
+        }
+        else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "UserViewController")
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle = .crossDissolve
+            present(vc!, animated: true)
+        }
     }
 }
