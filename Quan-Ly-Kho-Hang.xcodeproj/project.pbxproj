@@ -16,6 +16,7 @@
 		136D1BB52FC774A900136BA7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 136D1BB42FC774A900136BA7 /* FirebaseDatabase */; };
 		136D1BB72FC774A900136BA7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 136D1BB62FC774A900136BA7 /* FirebaseFirestore */; };
 		136D1BBA2FC8601100136BA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D1BB92FC8601100136BA7 /* AuthService.swift */; };
+		136D1BBC2FCA44D600136BA7 /* OTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D1BBB2FCA44D600136BA7 /* OTPCode.swift */; };
 		13BA08542FBAD5BC00396534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA08532FBAD5BC00396534 /* AppDelegate.swift */; };
 		13BA08562FBAD5BC00396534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA08552FBAD5BC00396534 /* SceneDelegate.swift */; };
 		13BA08582FBAD5BC00396534 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA08572FBAD5BC00396534 /* MainViewController.swift */; };
@@ -33,6 +34,7 @@
 		136D1BA02FC73D2D00136BA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		136D1BA32FC754C000136BA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		136D1BB92FC8601100136BA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		136D1BBB2FCA44D600136BA7 /* OTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCode.swift; sourceTree = "<group>"; };
 		13BA08502FBAD5BC00396534 /* Quan-Ly-Kho-Hang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quan-Ly-Kho-Hang.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BA08532FBAD5BC00396534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13BA08552FBAD5BC00396534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				136D1BA32FC754C000136BA7 /* User.swift */,
+				136D1BBB2FCA44D600136BA7 /* OTPCode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				13BA08582FBAD5BC00396534 /* MainViewController.swift in Sources */,
 				13BA08712FBAFD8D00396534 /* ForgetPasswordViewController.swift in Sources */,
 				136D1BA42FC754C000136BA7 /* User.swift in Sources */,
+				136D1BBC2FCA44D600136BA7 /* OTPCode.swift in Sources */,
 				13BA08542FBAD5BC00396534 /* AppDelegate.swift in Sources */,
 				136D1BBA2FC8601100136BA7 /* AuthService.swift in Sources */,
 				13BA08562FBAD5BC00396534 /* SceneDelegate.swift in Sources */,

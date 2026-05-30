@@ -167,30 +167,156 @@ class AuthService {
         }
     }
     
-    // Gui email
-    public func sendEmail(email: String) {
-        Auth.auth().currentUser?.sendEmailVerification { error in
+    // Tao OTP vao email
+    public func createOTP(email: String, completion: @escaping (Int) -> Void) {
+        // Tao random OTP
+        let otp = Int.random(in: 1000...9999)
+        
+        // Tao ket noi tang Firestore
+        let db = Firestore.firestore()
+        
+        // Tao dictionary tin nhan
+        let data: [String: Any] = [
+            "email": email,
+            "otp": otp,
+            "createdAt": Timestamp()
+        ]
+        
+        // Luu OTP vao Firestore
+        db.collection("otp").addDocument(data: data) { error in
             if let error = error {
                 os_log("\(error.localizedDescription)")
-                return
+                completion(0)
+            }
+            else {
+                completion(otp)
             }
         }
     }
     
-    // Kiem tra email da duoc xac thuc
-    public func clickedEmail(email: String, completion: @escaping (Bool) -> Void) {
-        Auth.auth().currentUser?.reload(completion: { error in
+    // Gui OTP vao email
+    public func sendOTP(email: String, otp: Int, completion: @escaping (Bool) -> Void) {
+        // Tao ket noi tang Firestore
+        let db = Firestore.firestore()
+        
+        // Tao dictionary tin nhan
+        let data: [String: Any] = [
+            "to": email,
+            "message": [
+                "subject": "Xác nhận Mã OTP",
+                "text": "Mã OTP của bạn là: \(otp)"
+            ]
+        ]
+        
+        // Gui email
+        db.collection("mail").addDocument(data: data) { error in
+            if let error = error {
+                os_log("\(error.localizedDescription)")
+                completion(false)
+            }
+            else {
+                completion(true)
+            }
+        }
+    }
+    
+    // Kiem tra hop le ma OTP
+    public func checkOTP(email: String, otp: Int, completion: @escaping (Bool) -> Void) {
+        // Tao ket noi tang Firestore
+        let db = Firestore.firestore()
+        
+        // Tao mang luu tru du lieu noi bo OTPCode
+        var OTPCodes: [OTPCode] = []
+        
+        // Lay toan bo du lieu trong bang OTP
+        db.collection("otp").getDocuments { snapshot, error in
+            if let error = error {
+                os_log("\(error.localizedDescription)")
+                completion(false)
+            }
+            else {
+                // Kiem tra nil du lieu truy xuat
+                guard let documents = snapshot?.documents else {
+                    completion(false)
+                    return
+                }
+                
+                // Doc du lieu va them vao doi tuong OTPCode
+                for doc in documents {
+                    let data = doc.data()
+                    
+                    let email = data["email"] as? String ?? ""
+                    let otp = data["otp"] as? Int ?? 0
+                    let createdAt = data["createdAt"] as? Timestamp
+                    
+                    let obj = OTPCode(email: email, otp: otp, createdAt: createdAt!)
+                    OTPCodes.append(obj)
+                }
+            }
+
+            // Duyet tung mang doi tuong va so sanh OTP voi Timestamp
+            for item in OTPCodes {
+                if item.email == email && item.otp == otp
+                {
+                    let createdAt = item.createdAt.dateValue()
+                    let seconds = Date().timeIntervalSince(createdAt)
+                    if seconds <= 300 {
+                        completion(true)
+                        return
+                    }
+                }
+            }
+            
+            // Mac dinh la false
+            completion(false)
+        }
+    }
+    
+    // Gui email khoi phuc tai khoan
+    public func sendUsername(email: String, completion: @escaping (Bool) -> Void) {
+        // Tao ket noi tang Firestore
+        let db = Firestore.firestore()
+        
+        // Lay du lieu nguoi dung sau khi duyet
+        db.collection("users").whereField("email", isEqualTo: email).getDocuments { snapshot, error in
             if let error = error {
                 os_log("\(error.localizedDescription)")
                 return
             }
-            
-            if Auth.auth().currentUser?.isEmailVerified == true {
-                completion(true)
-            }
             else {
-                completion(false)
+                guard let document = snapshot?.documents.first else {
+                    completion(false)
+                    return
+                }
+                let data = document.data()
+                
+                // Lay username
+                let username = data["username"] as? String
+                guard let username = username else {
+                    completion(false)
+                    return
+                }
+    
+                // Tao dictionary email
+                let dataEmail: [String: Any] = [
+                    "to": email,
+                    "message": [
+                        "subject": "Khôi phục Tên tài khoản của bạn",
+                        "text": "Tên tài khoản của bạn là : \(username)"
+                    ]
+                ]
+                
+                // Gui email
+                db.collection("mail").addDocument(data: dataEmail) { error in
+                    if let error = error {
+                        os_log("\(error.localizedDescription)")
+                        completion(false)
+                    }
+                    else {
+                        completion(true)
+                    }
+                }
             }
-        })
+        }
     }
 }
